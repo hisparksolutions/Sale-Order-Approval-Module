@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--
+    This XML code adds a new field 'so_double_validation' to the company form view in Odoo.
+    It enables double validation for sale orders by inserting this field after the 'favicon' field.
+
+    Attributes:
+        - id: Unique identifier for the new view record.
+        - model: Specifies the model this view is associated with, which is 'res.company'.
+        - inherit_id: Refers to the existing view 'base.view_company_form' to inherit.
+        - arch: Defines the structure of the view in XML.
+    -->
+
+    <record id="res_company_form_view_inherit_sales_order_approval" model="ir.ui.view">
+        <field name="name">res.company.form.view.inherit.sales.order.approval</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='color']" position="after">
+                <field name="so_double_validation"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
